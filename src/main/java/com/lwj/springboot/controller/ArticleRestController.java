@@ -3,9 +3,11 @@ package com.lwj.springboot.controller;
 
 import com.lwj.springboot.model.AjaxResponse;
 import com.lwj.springboot.model.Article;
+import com.lwj.springboot.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -20,10 +22,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/rest")
 public class ArticleRestController {
 
+    @Resource
+    ArticleRestService articleRestService;
+
     //@RequestMapping(value = "/article",method = POST,produces ="application/json")
     @PostMapping("/article")
     public AjaxResponse saveArticle(@RequestBody Article article){
         log.info("saveArticle:{}",article);
+        log.info("articleRestService return :"+articleRestService.saveArticle(article));
         return AjaxResponse.success(article);
     }
     //@RequestMapping(value = "/article/{id}",method = DELETE,produces = "application/json")
