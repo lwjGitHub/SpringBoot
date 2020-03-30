@@ -1,1 +1,6 @@
 
+#MockMvc测试时该配置无效
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
