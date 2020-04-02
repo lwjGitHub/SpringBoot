@@ -31,7 +31,7 @@ public class ArticleRestControllerTest {
     //测试方法
     @Test
     public void saveArticle() throws Exception {
-
+        //git 测试
         String article = "{\n" +
                 "    \"id\": 1,\n" +
                 "    \"author\": \"zimug\",\n" +
