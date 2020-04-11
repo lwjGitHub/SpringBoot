@@ -1,0 +1,36 @@
+server:
+  port: 8889
+#MockMvc测试时该配置无效
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  http:
+    encoding:
+      charset=UTF-8:
+
+
+family:
+  family-name: "happy family"
+  father:
+    name: lwj
+    age: 18
+  mother:
+    alias:
+      - lovely
+      - ailice
+  child:
+    name: fugeng
+    age: ${family.father.age:5}
+    friends:
+      - hobby: football
+        sex:  male
+      - hobby: basketball
+        sex: female
+
+
+# 设置盐值（加密解密密钥），我们配置在这里只是为了测试方便
+# 生产环境中，切记不要这样直接进行设置，可通过环境变量、命令行等形式进行设置。下文会讲
+jasypt:
+  encryptor:
+    password: 123456

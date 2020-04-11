@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+#MockMvc测试时该配置无效
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  http:
+    encoding:
+      charset=UTF-8:
+
+
+family:
+  family-name: "happy family"
+  father:
+    name: lwj
+    age: 18
+  mother:
+    alias:
+      - lovely
+      - ailice
+  child:
+    name: fugeng
+    age: ${family.father.age:5}
+    friends:
+      - hobby: football
+        sex:  male
+      - hobby: basketball
+        sex: female

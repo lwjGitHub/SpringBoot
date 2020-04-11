@@ -7,23 +7,6 @@ spring:
   http:
     encoding:
       charset=UTF-8:
-
-
-
-family:
-  family-name: "happy family"
-  father:
-    name: lwj
-    age: 18
-  mother:
-    alias:
-      - lovely
-      - ailice
-  child:
-    name: fugeng
-    age: ${family.father.age:5}
-    friends:
-      - hobby: football
-        sex:  male
-      - hobby: basketball
-        sex: female
+  #需要使用的配置文件
+  profiles:
+    active: dev
