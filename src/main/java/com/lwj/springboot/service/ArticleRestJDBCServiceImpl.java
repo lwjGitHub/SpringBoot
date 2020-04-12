@@ -1,6 +1,6 @@
 package com.lwj.springboot.service;
 
-import com.lwj.springboot.Dao.ArticleJDBCDAO;
+import com.lwj.springboot.dao.ArticleJDBCDAO;
 import com.lwj.springboot.model.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

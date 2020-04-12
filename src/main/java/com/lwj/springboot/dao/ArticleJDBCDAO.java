@@ -1,4 +1,4 @@
-package com.lwj.springboot.Dao;
+package com.lwj.springboot.dao;
 
 import com.lwj.springboot.model.Article;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
