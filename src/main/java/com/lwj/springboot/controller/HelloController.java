@@ -1,6 +1,6 @@
 package com.lwj.springboot.controller;
 
-import com.lwj.springboot.model.Article;
+import com.lwj.springboot.model.ArticleVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
    @RequestMapping(value = "/hello")
     public String hello() {
-       Article article = new Article();
+       ArticleVO article = new ArticleVO();
 
        String s = "Hello Spring Boot!热部署111";
        return s;

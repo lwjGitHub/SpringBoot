@@ -1,18 +1,18 @@
 package com.lwj.springboot.service;
 
-import com.lwj.springboot.model.Article;
+import com.lwj.springboot.model.ArticleVO;
 
 import java.util.List;
 
 public interface ArticleRestService{
 
-    public Article saveArticle(Article article);
+    ArticleVO saveArticle(ArticleVO article);
 
-    public void deleteArticle(Long id);
+    void deleteArticle(Long id);
 
-    public void updateArticle(Article article);
+    void updateArticle(ArticleVO article);
 
-    public Article getArticle(Long id);
+    ArticleVO getArticle(Long id);
 
-    public List<Article> getAll();
+    List<ArticleVO> getAll();
 }

@@ -19,7 +19,7 @@ import java.util.List;
 @Builder
 
 @JsonPropertyOrder(value = {"content","title"})
-public class Article {
+public class ArticleVO {
 
     /**
      * @since JsonIgnore //排除属性不做序列化操作
@@ -29,7 +29,7 @@ public class Article {
      *        JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8") 放在Date 属性上一行，有全局配置
      * */
 
-    @JsonIgnore
+
     private Long id;
     @JsonProperty("author")
     private String author;
