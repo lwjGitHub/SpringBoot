@@ -1,8 +1,8 @@
 package com.lwj.springboot;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lwj.springboot.model.Article;
-import com.lwj.springboot.service.ArticleRestJDBCServiceImpl;
+import com.lwj.springboot.model.ArticleVO;
+import com.lwj.springboot.service.ArticleMybatisRestServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +33,7 @@ public class ArticleRestControllerTest3 {
     private MockMvc mockMvc;
 
     @MockBean
-    ArticleRestJDBCServiceImpl articleRestJDBCServiceImpl;
+    ArticleMybatisRestServiceImpl articleMybatisRestService;
     //mock对象初始化
 //    @Before
 //    public void setUp() {
@@ -54,10 +54,10 @@ public class ArticleRestControllerTest3 {
                 "}";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article,Article.class);
+        ArticleVO articleObj = objectMapper.readValue(article, ArticleVO.class);
 
         //打桩
-       when(articleRestJDBCServiceImpl.saveArticle(articleObj)).thenReturn(articleObj);
+       when(articleMybatisRestService.saveArticle(articleObj)).thenReturn(articleObj);
 
         MvcResult result = mockMvc.perform(
                 MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/article")

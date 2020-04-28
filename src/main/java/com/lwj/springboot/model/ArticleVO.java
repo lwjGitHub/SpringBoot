@@ -19,7 +19,7 @@ import java.util.List;
 @Builder
 
 @JsonPropertyOrder(value = {"content","title"})
-public class Article {
+public class ArticleVO {
 
     /**
      * @since JsonIgnore //排除属性不做序列化操作
