@@ -9,30 +9,22 @@ spring:
 #    encoding:
 #      charset=UTF-8:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    primary:
+      jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
 #mybatis:
 
 #  mapper-locations: classpath:generator/*.xml
 logging:
   level:
     com.lwj.springboot: debug
-family:
-  family-name: "happy family"
-  father:
-    name: lwj
-    age: 18
-  mother:
-    alias:
-      - lovely
-      - ailice
-  child:
-    name: fugeng
-    age: ${family.father.age:5}
-    friends:
-      - hobby: football
-        sex:  male
-      - hobby: basketball
-        sex: female
+
+

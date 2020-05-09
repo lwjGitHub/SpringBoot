@@ -1,7 +1,9 @@
 package com.lwj.springboot.service;
 
-import com.lwj.springboot.generator.Article;
-import com.lwj.springboot.generator.ArticleDao;
+import com.lwj.springboot.generator.kmax.Article;
+import com.lwj.springboot.generator.kmax.ArticleDao;
+import com.lwj.springboot.generator.kmin.Message;
+import com.lwj.springboot.generator.kmin.MessageDao;
 import com.lwj.springboot.model.ArticleVO;
 import com.lwj.springboot.utils.DozerUtils;
 import org.dozer.Mapper;
@@ -19,12 +21,18 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
     @Resource
     private ArticleDao articleDao;
 
+    @Resource
+    private MessageDao messageDao;
 
     //新增
     @Override
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDao.insert(articlePO);
+        Message message = new Message();
+        message.setName("lwj");
+        message.setContent("帅哥");
+        messageDao.insert(message);
         return null;
     }
 
