@@ -22,9 +22,9 @@ spring:
 
 primarydb:
   uniqueResourceName: primary
-  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
   xaProperties:
-    url: dbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     user: root
     password: root
   exclusiveConnectionMode: true
@@ -34,9 +34,9 @@ primarydb:
 
 secondarydb:
   uniqueResourceName: secondary
-  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
   xaProperties:
-    url: dbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     user: root
     password: root
   exclusiveConnectionMode: true
@@ -53,5 +53,7 @@ logging:
     com.lwj.springboot: debug
 
 
-#git
+#git密码
+#Github123456
+
 

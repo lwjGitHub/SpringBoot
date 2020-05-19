@@ -8,6 +8,7 @@ import com.lwj.springboot.model.ArticleVO;
 import com.lwj.springboot.utils.DozerUtils;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,14 +27,16 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
 
     //新增
     @Override
+    @Transactional
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDao.insert(articlePO);
         Message message = new Message();
         message.setName("lwj");
-        message.setContent("帅哥");
+        message.setContent("da帅哥");
         messageDao.insert(message);
-        return null;
+//     int temp = 4/0;
+        return article;
     }
 
     //删除
