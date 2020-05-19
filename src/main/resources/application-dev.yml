@@ -8,17 +8,42 @@ spring:
 #  http:
 #    encoding:
 #      charset=UTF-8:
-  datasource:
-    primary:
-      jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-    secondary:
-      jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+#datasource:
+#  primary:
+#    jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  secondary:
+#    jdbcUrl: jdbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+primarydb:
+  uniqueResourceName: primary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: dbc:mysql://127.0.0.1:3306/kmax?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    user: root
+    password: root
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。
+
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: dbc:mysql://127.0.0.1:3306/kmin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    user: root
+    password: root
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。
+
 
 #mybatis:
 
@@ -27,4 +52,6 @@ logging:
   level:
     com.lwj.springboot: debug
 
+
+#git
 
