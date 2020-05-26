@@ -27,15 +27,15 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
 
     //新增
     @Override
-    @Transactional
+    @Transactional(transactionManager = "transactionManager", rollbackFor = Exception.class)
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDao.insert(articlePO);
         Message message = new Message();
-        message.setName("lwj");
-        message.setContent("da帅哥");
+        message.setName("lwj2");
+        message.setContent("大大大");
         messageDao.insert(message);
-//     int temp = 4/0;
+        //int temp = 4/0;
         return article;
     }
 
